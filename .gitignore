@@ -1,3 +1,12 @@
+# Ignore Google New Vectors
 GoogleNews-vectors-negative300.bin.gz
+
+# Ignore Dataset
 quora_duplicate_questions.tsv
+
+# Ignore all csv files.
 *.csv
+
+# Ignore temporary jupyter notebook files.
+.ipynb_checkpoints/
+modules/.ipynb_checkpoints/

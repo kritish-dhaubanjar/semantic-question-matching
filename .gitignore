@@ -10,3 +10,6 @@ quora_duplicate_questions.tsv
 # Ignore temporary jupyter notebook files.
 .ipynb_checkpoints/
 modules/.ipynb_checkpoints/
+
+# Ignore Random Forest, Logistic Regression and KNN models
+*.model

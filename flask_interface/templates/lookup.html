@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='bootstrap.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='styles.css')}}"
+    />
+    <title>Semantic Question Pair Matching with Deep Learning</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="text-center">
+          <div class="py-1 text-center">
+            <ul>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/python.png')}}"
+                  class="mx-auto mb-4"
+                  width="80"
+                />
+              </li>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/flask.png')}}"
+                  class="mx-auto mb-4"
+                  width="150"
+                />
+              </li>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/scikit.png')}}"
+                  class="mx-auto mb-4"
+                  width="150"
+                />
+              </li>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/tensorflow.webp')}}"
+                  class="mx-auto mb-4"
+                  width="130"
+                />
+              </li>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/keras.png')}}"
+                  class="mx-auto mb-4"
+                  width="170"
+                />
+              </li>
+            </ul>
+            <h3>Semantic Question Pair Matching with Deep Learning</h3>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <h6>Words related to {{ word }}:</h6>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Words</th>
+                <th scope="col">Cosine Similarity</th>
+                <th scope="col">Vector</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for word in words%}
+              <tr>
+                <th scope="row">1</th>
+                <td>{{ word[0] }}</td>
+                <td>{{ word[1] }}</td>
+                <td>{{ model.wv[word[0]] }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

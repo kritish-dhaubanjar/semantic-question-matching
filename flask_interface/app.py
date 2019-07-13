@@ -15,7 +15,7 @@ from nltk.corpus import stopwords
 lemmatizer = WordNetLemmatizer()
 
 import pickle
-classifier = pickle.load(open('ANN.model', 'rb'))
+# classifier = pickle.load(open('ANN.model', 'rb'))
 randomForest = pickle.load(open('RandomForest.model', 'rb'))
 logistic = pickle.load(open('LogisticRegression.model', 'rb'))
 knn = pickle.load(open('KNN.model', 'rb'))
@@ -45,12 +45,19 @@ def sent2vec(s):
 X_Scaler = pickle.load(open('XScaler','rb'))    
     
 app = Flask(__name__)
-model = KeyedVectors.load('word2vec.model')
+model = pickle.load(open("quora_word2vec.model", "rb"))
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def index():
-    question1 = 'What practical applications might evolve from the discovery of the Higgs Boson ?'
-    question2 = 'What are some practical benefits of discovery of the Higgs Boson ?'
+    return render_template("index.html")
+
+@app.route("/evaluate", methods=["POST"])
+def predict():
+    #question1 = 'What practical applications might evolve from the discovery of the Higgs Boson ?'
+    #question2 = 'What are some practical benefits of discovery of the Higgs Boson ?'
+    question1 = request.form["question1"]
+    question2 = request.form["question2"]
+
     diff_len = len(str(question1)) - len(str(question2))
     common_words = len(set(str(question1).lower().split()).intersection(set(str(question2).lower().split())))
     fuzz_qratio = fuzz.QRatio(str(question1), str(question2))
@@ -76,11 +83,27 @@ def index():
              fuzz_partial_token_sort_ratio, fuzz_token_set_ratio, fuzz_token_sort_ratio, wmd, cosine_distance,
              cityblock_distance, canberra_distance, euclidean_distance, minkowski_distance, braycurtis_distance
              ])
-    print(X)
+            
+    X_to_render = X
+
     X = X_Scaler.transform(X.reshape(1,-1))
-    y_pred = classifier.predict(X)
-    print(y_pred)
-    return (y_pred > 0.5)
+
+    # y_ann_pred = classifier.predict(X)
+    y_random_forest_pred = randomForest.predict(X)
+    y_logistic_pred = logistic.predict(X)
+    y_knn_pred = knn.predict(X)
+
+    print(y_random_forest_pred)
+    print(y_logistic_pred)
+    print(y_knn_pred)
+
+    return render_template("result.html", X_to_render = X_to_render, y_random_forest_pred = y_random_forest_pred, y_logistic_pred = y_logistic_pred, y_knn_pred = y_knn_pred)
+
+@app.route("/lookup", methods=["POST"])
+def lookup():
+    word = request.form["word"]
+    words = model.similar_by_word(word)
+    return render_template("lookup.html", words=words, word=word, model=model)
 
 if __name__ == "__main__":
     app.run(debug=True)

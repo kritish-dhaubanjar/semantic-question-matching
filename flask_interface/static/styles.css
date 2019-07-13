@@ -1,0 +1,50 @@
+.wrapper {
+  height: 100%;
+  background-image: linear-gradient(#d9afd9, #97d9e1);
+  padding-bottom: 6rem;
+}
+
+div {
+  background-color: transparent !important;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  display: inline;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+button {
+  border-radius: 0 !important;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.btn-sm {
+  margin-left: 0rem !important;
+}
+
+.or {
+  text-align: center;
+  color: #fff;
+}
+
+table {
+  background-color: #fff;
+  font-size: 0.8rem;
+}
+
+.progress {
+  background-color: #e9ecef !important;
+}
+.progress-bar {
+  background-color: #007bff !important;
+}
+
+h5 {
+  color: #3e3e3e;
+}

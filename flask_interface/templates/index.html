@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='bootstrap.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='styles.css')}}"
+    />
+    <title>Semantic Question Pair Matching with Deep Learning</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="text-center">
+          <div class="py-1 text-center">
+            <ul>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/python.png')}}"
+                  class="mx-auto mb-4"
+                  width="80"
+                />
+              </li>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/flask.png')}}"
+                  class="mx-auto mb-4"
+                  width="150"
+                />
+              </li>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/scikit.png')}}"
+                  class="mx-auto mb-4"
+                  width="150"
+                />
+              </li>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/tensorflow.webp')}}"
+                  class="mx-auto mb-4"
+                  width="130"
+                />
+              </li>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/keras.png')}}"
+                  class="mx-auto mb-4"
+                  width="170"
+                />
+              </li>
+            </ul>
+            <h3>Semantic Question Pair Matching with Deep Learning</h3>
+            <!-- <p class="lead">
+            We explore methods of determining semantic equivalence between pairs
+            of questions using a dataset released by Quora of more than 400,000
+            questions pairs through Machine Learning with Natural Language
+            Processing.
+          </p> -->
+          </div>
+        </div>
+        <br />
+
+        <div class="row">
+          <div class="col-md-12">
+            <form class="needs-validation" method="POST" action="/evaluate">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="question1">First Question</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="question1"
+                    placeholder="What are some practical benefits of discovery of the Higgs Boson ?"
+                    value=""
+                    name="question1"
+                    required
+                    title="Valid question is required."
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="question2">Second Question</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="question2"
+                    placeholder="What practical applications might evolve from the discovery of the Higgs Boson ?"
+                    value=""
+                    name="question2"
+                    required
+                    title="Valid question is required."
+                  />
+                </div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">
+                  Evaluate
+                </button>
+              </div>
+            </form>
+            <br />
+
+            <div class="or">
+              <h4>OR</h4>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <form class="needs-validation" method="POST" action="/lookup">
+              <div class="row">
+                <div class="col-md-6" style="margin: auto;">
+                  <label for="embeddings">Lookup Embeddings</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="embeddings"
+                    name="word"
+                    placeholder="eg: geography, king"
+                    value=""
+                    required
+                    title="Valid question is required."
+                  /><br />
+                  <button class="btn btn-primary btn-sm btn-block">
+                    Look Up
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

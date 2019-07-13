@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='bootstrap.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='styles.css')}}"
+    />
+    <title>Semantic Question Pair Matching with Deep Learning</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="text-center">
+          <div class="py-1 text-center">
+            <ul>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/python.png')}}"
+                  class="mx-auto mb-4"
+                  width="80"
+                />
+              </li>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/flask.png')}}"
+                  class="mx-auto mb-4"
+                  width="150"
+                />
+              </li>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/scikit.png')}}"
+                  class="mx-auto mb-4"
+                  width="150"
+                />
+              </li>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/tensorflow.webp')}}"
+                  class="mx-auto mb-4"
+                  width="130"
+                />
+              </li>
+              <li>
+                <img
+                  src="{{url_for('static', filename='images/keras.png')}}"
+                  class="mx-auto mb-4"
+                  width="170"
+                />
+              </li>
+            </ul>
+            <h3>Semantic Question Pair Matching with Deep Learning</h3>
+          </div>
+        </div>
+        <br />
+
+        <div class="row">
+          <div class="col-lg-2 col-md-6 col-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">diff_len</th>
+                  <td>{{ X_to_render[0] }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">common_words</th>
+                  <td>{{ X_to_render[1] }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">fuzz_qratio</th>
+                  <td>{{ X_to_render[2] }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">fuzz_WRatio</th>
+                  <td>{{ X_to_render[3] }}</td>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">fuzz_partial_ratio</th>
+                  <td>{{ X_to_render[4] }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">fuzz_partial_token_set_ratio</th>
+                  <td>{{ X_to_render[5] }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">fuzz_partial_token_sort_ratio</th>
+                  <td>{{ X_to_render[6] }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">fuzz_token_set_ratio</th>
+                  <td>{{ X_to_render[7] }}</td>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">fuzz_token_sort_ratio</th>
+                  <td>{{ X_to_render[8] }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">wmd</th>
+                  <td>{{ X_to_render[9] }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">cosine_distance</th>
+                  <td>{{ X_to_render[10] }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">cityblock_distance</th>
+                  <td>{{ X_to_render[11] }}</td>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+          <div class="col-lg-1 col-md-6 col-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">canberra_distance</th>
+                  <td>{{ X_to_render[12] }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">euclidean_distance</th>
+                  <td>{{ X_to_render[13] }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">minkowski_distance</th>
+                  <td>{{ X_to_render[14] }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">braycurtis_distance</th>
+                  <td>{{ X_to_render[15] }}</td>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+
+        <br />
+        <hr />
+        <br />
+
+        <div class="row">
+          <div class="col-4">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Machine Model</th>
+                  <th>Result (is_duplicate)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Random Forest</td>
+                  <td>{{ (y_random_forest_pred > 0.5)[0] }}</td>
+                </tr>
+                <tr>
+                  <td>Logistic Regression</td>
+                  <td>{{ (y_logistic_pred > 0.5)[0] }}</td>
+                </tr>
+                <tr>
+                  <td>K Nearest Neighbour</td>
+                  <td>{{ (y_knn_pred > 0.5)[0] }}</td>
+                </tr>
+                <tr>
+                  <td>Artificial Neural Network</td>
+                  <td>True</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{{url_for('static', filename='jquery.js')}}"></script>
+    <script src="{{url_for('static', filename='popper.js')}}"></script>
+    <script src="{{url_for('static', filename='bootstrap.js')}}"></script>
+  </body>
+</html>

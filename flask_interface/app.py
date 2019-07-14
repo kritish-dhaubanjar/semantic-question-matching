@@ -15,7 +15,6 @@ from nltk.corpus import stopwords
 lemmatizer = WordNetLemmatizer()
 
 import pickle
-# classifier = pickle.load(open('ANN.model', 'rb'))
 randomForest = pickle.load(open('RandomForest.model', 'rb'))
 logistic = pickle.load(open('LogisticRegression.model', 'rb'))
 knn = pickle.load(open('KNN.model', 'rb'))
@@ -88,7 +87,9 @@ def predict():
 
     X = X_Scaler.transform(X.reshape(1,-1))
 
-    # y_ann_pred = classifier.predict(X)
+    classifier = pickle.load(open('ANN.model', 'rb'))
+
+    y_ann_pred = classifier.predict(X)
     y_random_forest_pred = randomForest.predict(X)
     y_logistic_pred = logistic.predict(X)
     y_knn_pred = knn.predict(X)
@@ -97,7 +98,7 @@ def predict():
     print(y_logistic_pred)
     print(y_knn_pred)
 
-    return render_template("result.html", X_to_render = X_to_render, y_random_forest_pred = y_random_forest_pred, y_logistic_pred = y_logistic_pred, y_knn_pred = y_knn_pred)
+    return render_template("result.html", X_to_render = X_to_render, y_random_forest_pred = y_random_forest_pred, y_logistic_pred = y_logistic_pred, y_knn_pred = y_knn_pred, y_ann_pred = y_ann_pred)
 
 @app.route("/lookup", methods=["POST"])
 def lookup():

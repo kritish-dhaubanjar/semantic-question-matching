@@ -44,7 +44,8 @@ def sent2vec(s):
 X_Scaler = pickle.load(open('XScaler','rb'))    
     
 app = Flask(__name__)
-model = pickle.load(open("quora_word2vec.model", "rb"))
+#model = pickle.load(open("quora_word2vec.model", "rb"))
+model = KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin.gz', binary=True, limit=500000)
 
 @app.route("/", methods=["GET"])
 def index():

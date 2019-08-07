@@ -1,3 +1,2 @@
-```
-	flask run --without-thread
-```
+> flask run --without-threads
+

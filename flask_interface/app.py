@@ -18,6 +18,9 @@ import pickle
 randomForest = pickle.load(open('RandomForest.model', 'rb'))
 logistic = pickle.load(open('LogisticRegression.model', 'rb'))
 knn = pickle.load(open('KNN.model', 'rb'))
+quora_model = pickle.load(open("word2vec.model", "rb"))
+model = KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin.gz', binary=True, limit=500000)
+
 
 def wordmoverdistance(s1, s2):
     s1 = str(s1).lower().split()
@@ -44,7 +47,6 @@ def sent2vec(s):
 X_Scaler = pickle.load(open('XScaler','rb'))    
     
 app = Flask(__name__)
-model = pickle.load(open("quora_word2vec.model", "rb"))
 
 @app.route("/", methods=["GET"])
 def index():
@@ -97,14 +99,14 @@ def predict():
     print(y_random_forest_pred)
     print(y_logistic_pred)
     print(y_knn_pred)
-
-    return render_template("result.html", X_to_render = X_to_render, y_random_forest_pred = y_random_forest_pred, y_logistic_pred = y_logistic_pred, y_knn_pred = y_knn_pred, y_ann_pred = y_ann_pred)
+    # return render_template("result.html", X_to_render = X_to_render, y_random_forest_pred = y_random_forest_pred, y_logistic_pred = y_logistic_pred, y_knn_pred = y_knn_pred)
+    return render_template("result.html", X_to_render = X_to_render, y_random_forest_pred = y_random_forest_pred, y_logistic_pred = y_logistic_pred, y_knn_pred = y_knn_pred, y_ann_pred = y_ann_pred[0])
 
 @app.route("/lookup", methods=["POST"])
 def lookup():
     word = request.form["word"]
-    words = model.similar_by_word(word)
-    return render_template("lookup.html", words=words, word=word, model=model)
+    words = quora_model.similar_by_word(word)
+    return render_template("lookup.html", words=words, word=word, model=quora_model)
 
 if __name__ == "__main__":
     app.run(debug=True)

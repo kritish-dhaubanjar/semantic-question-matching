@@ -105,4 +105,14 @@
 | Accuracy                  | 0.7236 | ACC = (TP + TN) / (P + N)  |
 | F1 Score                  | 0.6529 | F1 = 2TP / (2TP + FP + FN) |
 
+---
+
+## **Flask Interface**
+
+![Home](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/outputs/home.png)
+
+![Evaluate](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/outputs/evaluate.png)
+
+![Lookups](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/outputs/lookup.png)
+
 > flask run --without-threads

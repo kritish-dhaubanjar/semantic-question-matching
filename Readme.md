@@ -10,12 +10,18 @@
 
 ![Distribution of Questions](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/count.png)
 
+---
+
 **System Architecture**
 ![System Architecture](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/arch.png)
+
+---
 
 ### Stopwords Removal
 
 ![Stopwords Removal](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/stopwords.png)
+
+---
 
 ### Stemming | Lemmatization
 
@@ -23,27 +29,33 @@
 
 ![Lemmatization](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/lemma.png)
 
+---
+
 ### Word2vec
 
 ![Word2vec](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/word2vec.png)
 
-### Correlation Heatmap for features
+---
+
+### **Correlation Heatmap for features**
 
 ![Heatmap](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/heatmap.png)
 
-### Distribution Plots
+### **Distribution Plots**
 
 | len_q1 vs len_q2                                                                                                                 | diff_len                                                                                                                  |
 | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | ![len_q1 vs len_q2](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/len.png) | ![diff_len](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/diff.png) |
 
-### Scatter Plots
+### **Scatter Plots**
 
 | cosine_distance vs common_words                                                                                       | fuzz_partial_ratio vs common_words                                                                                    |
 | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | ![](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/scatter1.png) | ![](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/scatter2.png) |
 
-## Supervised Machine Learning Models
+---
+
+## **Supervised Machine Learning Models**
 
 | S.N. | Supervised Machine Learning | Accuracy |
 | ---- | --------------------------- | -------- |
@@ -51,7 +63,9 @@
 | 2    | K Nearest Neighbors         | 0.7104   |
 | 3    | Logistic Regression         | 0.6680   |
 
-## Neural Network
+---
+
+## **Neural Network**
 
 ![Neural Network](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/assets/g719.png)
 
@@ -69,7 +83,7 @@
 | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | ![Training Loss](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/loss.png) | ![Training Accuracy](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/accuracy.png) | ![ROC](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/roc.png) |
 
-### Confusion Matrix
+### **Confusion Matrix**
 
 |            |     | Predicted |       |
 | ---------- | --- | --------- | ----- |
@@ -77,7 +91,7 @@
 | **Actual** | 0   | 36462     | 12792 |
 |            | 0   | 8954      | 20455 |
 
-### Some Metrics
+### **Some Metrics**
 
 | Measure                   | Value  | Derivations                |
 | ------------------------- | ------ | -------------------------- |

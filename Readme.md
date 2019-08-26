@@ -4,7 +4,10 @@
 
 ![Quora Dataset](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/questions.png)
 
-**Distribution of Questions**
+---
+
+#### Distribution of Questions
+
 ![Distribution of Questions](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/count.png)
 
 **System Architecture**
@@ -24,7 +27,8 @@
 
 ![Word2vec](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/word2vec.png)
 
-###Correlation Heatmap for features
+### Correlation Heatmap for features
+
 ![Heatmap](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/heatmap.png)
 
 ### Distribution Plots

@@ -115,5 +115,24 @@
 
 ![Lookups](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/outputs/lookup.png)
 
+
+#### Install essential libraries
+
+```
+pip3 install numpy
+pip3 install fuzzywuzzy
+pip3 install gensim
+pip3 install python-Levenshtein
+pip3 install sklearn
+pip3 install pyemd
+pip3 install keras
+pip3 install tensorflow
+```
+
+*Download Models from https://drive.google.com/open?id=1YgibRxIBRPDBvrPPstxkInnNKc6M5lFc & Extract to ./semantic-question-matching/flask_interface/*
+
+> cd ./semantic-question-matching/flask_interface
+
 > export FLASK_APP=app.py
+
 > flask run --without-threads

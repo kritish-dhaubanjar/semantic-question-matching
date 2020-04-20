@@ -115,4 +115,5 @@
 
 ![Lookups](https://raw.githubusercontent.com/kritish-dhaubanjar/semantic-question-matching-latex/master/images/outputs/lookup.png)
 
+> export FLASK_APP=app.py
 > flask run --without-threads

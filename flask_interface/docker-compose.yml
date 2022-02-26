@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: flask-interface
+    ports:
+      - "5000:5000"
+    expose:
+      - "5000"
+    volumes:
+      - ./models:/opt/models

@@ -13,3 +13,5 @@ modules/.ipynb_checkpoints/
 
 # Ignore Random Forest, Logistic Regression and KNN models
 *.model
+
+flask_interface/__pycache__

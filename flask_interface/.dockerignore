@@ -1,0 +1,7 @@
+# Models
+ANN.model
+KNN.model
+word2vec.model
+RandomForest.model
+LogisticRegression.model
+GoogleNews-vectors-negative300.bin.gz

@@ -5,6 +5,7 @@ from gensim.models import KeyedVectors
 from scipy.stats import skew, kurtosis
 from scipy.spatial.distance import cosine, cityblock, jaccard, canberra, euclidean, minkowski, braycurtis
 import nltk
+nltk.download('omw-1.4')
 nltk.download('stopwords')
 nltk.download('wordnet')
 nltk.download('punkt')
@@ -15,11 +16,11 @@ from nltk.corpus import stopwords
 lemmatizer = WordNetLemmatizer()
 
 import pickle
-randomForest = pickle.load(open('RandomForest.model', 'rb'))
-logistic = pickle.load(open('LogisticRegression.model', 'rb'))
-knn = pickle.load(open('KNN.model', 'rb'))
-quora_model = pickle.load(open("word2vec.model", "rb"))
-model = KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin.gz', binary=True, limit=500000)
+randomForest = pickle.load(open('models/RandomForest.model', 'rb'))
+logistic = pickle.load(open('models/LogisticRegression.model', 'rb'))
+knn = pickle.load(open('models/KNN.model', 'rb'))
+quora_model = pickle.load(open("models/word2vec.model", "rb"))
+model = KeyedVectors.load_word2vec_format('models/GoogleNews-vectors-negative300.bin.gz', binary=True, limit=500000)
 
 def wordmoverdistance(s1, s2):
     s1 = str(s1).lower().split()
@@ -89,7 +90,7 @@ def predict():
 
     X = X_Scaler.transform(X.reshape(1,-1))
 
-    classifier = pickle.load(open('ANN.model', 'rb'))
+    classifier = pickle.load(open('models/ANN.model', 'rb'))
 
     y_ann_pred = classifier.predict(X)
     y_random_forest_pred = randomForest.predict(X)
@@ -105,7 +106,7 @@ def predict():
 @app.route("/lookup", methods=["POST"])
 def lookup():
     word = request.form["word"]
-    words = quora_model.similar_by_word(word)
+    words = quora_model.wv.similar_by_word(word)
     return render_template("lookup.html", words=words, word=word, model=quora_model)
 
 if __name__ == "__main__":

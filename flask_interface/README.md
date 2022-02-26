@@ -14,3 +14,5 @@
    - GoogleNews-vectors-negative300.bin.gz
 
 4. Build and run application with `docker-compose up`.
+
+![docker-compose_build](https://user-images.githubusercontent.com/25634165/155836579-be0ba358-941a-4409-91d2-80920003d7f5.png)
